@@ -52,12 +52,15 @@ ll lcm(ll a, ll b){
     return a*b/gcd(a,b);
 }
 
-class compare{
+priority_queue<int> max_pq;   
+priority_queue<int,vector<int>,greater<int>> min_pq;
+
+class compare{  //custom priority queue function // gives oppsite of vector or normal comparisions 
     public:
-    bool operator()(pair<ll,ll> &p1, pair<ll,ll> &p2){    
+    bool operator()(const pair<ll,ll> &p1,const pair<ll,ll> &p2){    
         // return true if p1 has less priority than p2
-        if(p1.first!=p2.first) return p1.first > p2.first;
-        return p1.second < p2.second;
+        if(max(p1.first,p1.second)==max(p2.first,p2.second)) return min(p1.first,p1.second) < min(p2.first,p2.second);
+        return max(p1.first,p1.second)<max(p2.first,p2.second);
     }
 };
 
