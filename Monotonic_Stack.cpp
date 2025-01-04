@@ -9,11 +9,13 @@ using namespace std;
 // 9     (-1) [9]
 // 2     (-1) 9>=2 pop 9 and push curr element i.e. 2 for finding the next smaller element thats why we push current element  [2]
 // 5     (2)  topmost element is the answer i.e. 2 . now just push 5  [2,5]
-// 3     (2)  as 5>=3 pop 5 , but 2 is not >=3 and push 3 [3,2]
-// 6     (3)  as 3 is not >=6, and the closest is 3, now push 6 in stack []
+// 3     (2)  as 5>=3 pop 5 , but 2 is not >=3 and push 3 [2,3]
+// 6     (3)  as 3 is not >=6, and the closest is 3, now push 6 in stack [2,3,6]
 // 1     (-1) as 6,3,5,2,9 all greater than 1 , so pop all and push 1  [1]
 // 8     (1) as 1 is not >=8, now push 8  [1,8]
 // 10    (8) as 8 is not >=10 , now push 10. [1,8,10]
+
+//TC -> O(N)
 
 int main() {
 	// your code goes here
