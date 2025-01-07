@@ -52,8 +52,9 @@ ll lcm(ll a, ll b){
     return a*b/gcd(a,b);
 }
 
-priority_queue<int> max_pq;   
-priority_queue<int,vector<int>,greater<int>> min_pq;
+//priority_queue<//type of element to be stored//> pq
+priority_queue<pair<int,int>> max_pq;   
+priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> min_pq;
 
 class compare{  //custom priority queue function // gives oppsite of vector or normal comparisions 
     public:
@@ -63,6 +64,8 @@ class compare{  //custom priority queue function // gives oppsite of vector or n
         return max(p1.first,p1.second)<max(p2.first,p2.second);
     }
 };
+
+priority_queue<pair<int,int>,vector<pair<int,int>>,compare> pq;
 
 const int N = 1000100;
 vector<ll>sieve(N,0);
