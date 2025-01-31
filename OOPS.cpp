@@ -139,3 +139,79 @@ int main(){
     cout << curr_speed << " " << curr_gear << " " << curr_passenger << endl;
     return 0;
 }  // scope of object ends here
+
+
+//types of inheritance
+
+// 1. Single Inheritance
+// 2. Multiple Inheritance
+// 3. Multilevel Inheritance
+// 4. Hierarchical Inheritance
+// 5. Hybrid Inheritance
+// 6. Multipath Inheritance
+// 7. Cyclic Inheritance
+
+// 1. Single Inheritance: In single inheritance, a class is allowed to inherit from only one class. i.e. one sub class is inherited by one base class only.     
+
+// An object of class child has all data members and member functions of class parent
+// so we try accessing the parents method and data from the child class object.
+
+// code for single inheritance is given below:
+
+class A {              // A is a base class
+    public:
+        void display() {
+            cout << "Base class content." << endl;
+        }
+};
+class B: public A {   // B is a sub class of A class
+    public:
+        void show() {
+            cout << "Derived class content." << endl;
+        }
+        // u can use a memeber function of base class in derived class here
+};
+
+int main() {
+    B obj;
+    obj.display(); // calling base class function
+    obj.show();   // calling derived class function
+    return 0;
+}
+// Output: 
+// Base class content.
+// Derived class content.
+
+
+
+// 2. Multiple Inheritance: In multiple inheritance, a class is allowed to inherit from more than one class. i.e. one sub class is inherited by more than one base class.
+// code for multiple inheritance is given below.
+class A {
+    public:
+        void display() {
+            cout << "Base class A content." << endl;
+        }
+};
+class B {
+    public:
+        void show() {
+            cout << "Base class B content." << endl;
+        }
+};
+class C: public A, public B {
+    public:
+        void view() {
+            cout << "Derived class content." << endl;
+        }
+};
+int main() {
+    C obj;
+    obj.display(); // calling base class A function
+    obj.show(); // calling base class B function
+    obj.view(); // calling derived class function
+    return 0;
+}
+// Output: B
+// Base class A content.
+// Base class B content.
+// Derived class content.
