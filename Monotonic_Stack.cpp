@@ -68,12 +68,12 @@ int main() {
     stack<int> s;
     vector<int>ans(n);
     for(int i=0; i<n; i++){
-        while(!s.empty() and s.top()<v[i]){
+        while(!s.empty() and s.top()<v[i]){  // v[s.top()]<v[i] for stroing index of the ngl element acc. to the original array 
             s.pop();
         }
         if(s.empty()) ans[i] = -1;
         else ans[i] = s.top();
-        s.push(v[i]);
+        s.push(v[i]);                       // s.push(i) for index
     }
     for(auto &it:ans) cout << it << " ";
     cout << endl;
