@@ -6,23 +6,31 @@ const int mod = 1e9+7;// prime number
 
 //binary exponentiation -> used for finding power big integers
 //iterative approach
-ll bin_expo(ll a, ll b, ll mod) {  // log b time -> iterative approach, prove it by example
+int bin_expo(int a, int b, int mod) {  // log b time -> iterative approach, prove it by example
     ll res = 1; 
     while (b > 0) {
-        if (b & 1) res = (res * a) % mod; // if b is odd make it even
-        a = (a * a) % mod; // b -> even
+        if (b & 1) { // if b is odd make or last bit is 1 then multiply a.
+            res = (res * a) % mod;
+         } 
+        a = (a * a) % mod; // b -> increase power
         b = b >> 1; //b = b/2;
     }
     return res;
 }
 
-//recursive approach
-ll binpow(ll a, ll b) {
-    if (b == 0) return 1;
-    ll res = binpow(a, b / 2);
-    res = (res * res) % mod;
-    if (b % 2) res = (res * a) % mod;
-    return res;
+// int 4 byte, long long take 8 bytes, so better to use int for memory optimization
+// int range is 10^9, long range is 10^12, and long long range is 10^18
+
+//recursive approach 
+int binpow(int a, int b) {
+    if(b == 0) return 1;
+    int res = binpow(a, b/2);
+    if(b&1){
+        return (a * (res * 1LL * res) % mod) % mod;
+    }
+    else{
+        return (res * 1LL * res) % mod;
+    }
 }
 
 // modulo arithmetic
